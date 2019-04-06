@@ -22,8 +22,8 @@ function Snake(){
     this.y = this.y + this.ySpeed*scl;
     frameRate(10);
 
-    this.x = constrain(this.x, 0, width - scl);
-    this.y = constrain(this.y, 0, height - scl);
+    //this.x = constrain(this.x, 0, width - scl);
+    //this.y = constrain(this.y, 0, height - scl);
 
   }
 
@@ -47,10 +47,15 @@ function Snake(){
     for (var i = 0; i < this.tail.length; i++) {
       var pos = this.tail[i];
       var d = dist(this.x, this.y, pos.x, pos.y);
-      if (d < 1) {
+
+      if (d < 1 || pos.x >= width-scl || pos.y >= height-scl || pos.x <= 0 || pos.y <= 0) {
         console.log('starting over');
         this.total = 0;
         this.tail = [];
+        this.x=0;
+        this.y=0;
+        this.xSpeed = 1;
+        this.ySpeed = 0;
       }
     }
   }

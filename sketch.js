@@ -9,6 +9,7 @@ function setup() {
   s = new Snake();
   scl = 20;
   pickLocation();
+  frameRate(5);
 }
 
 function draw(){
